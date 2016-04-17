@@ -5,7 +5,70 @@
 
 'use strict';
 // import Thing from '../api/thing/thing.model';
+import Trailer from '../api/trailer/trailer.model';
 import User from '../api/user/user.model';
+
+Trailer.find({}).remove()
+  .then(() => {
+    Trailer.create({
+      "_id": "57131fde465a6cfd11303de0",
+      "title": "Some Title",
+      "Description": "Some Description",
+      "director": ["New Director"],
+      "cast": ["Angelina Joli, Brad Pit"],
+      "writer": ["New Writer"],
+      "studio": "Marvel",
+      "duration": "02:24:59",
+      "genre": ["Romance, Love"],
+      "release": "2016-12-08",
+      "views": 26,
+      "posterUrl": "http://posterurl.com",
+      "trailerUrl": "http://trailerurl.com",
+      "imdbUrl": "http://imdburl.com",
+      "officialUrl": "http://officialurl.com",
+      "likes": 15,
+      "fbShare": 13,
+      "twShare": 5,
+      "gpShare": 2,
+      "commentCount": 2,
+      "comments": [{
+        "csName": "Commenter 1",
+        "csComment": "Commenter 1's comment is here"
+      }, {
+        "csName": "Commenter 2",
+        "csComment": "Commenter 2's comment is here"
+      }]
+    }, {
+      "_id": "57131fde465a6cfd11303de3",
+      "title": "Another Title",
+      "Description": "Another Description",
+      "director": ["Old Director"],
+      "cast": ["Angelina Joli, Brad Pit"],
+      "writer": ["Old Writer"],
+      "studio": "Dc",
+      "duration": "01:54:59",
+      "genre": ["Action, Horor"],
+      "release": "2016-06-08",
+      "views": 26,
+      "posterUrl": "http://posterurl.com",
+      "trailerUrl": "http://trailerurl.com",
+      "imdbUrl": "http://imdburl.com",
+      "officialUrl": "http://officialurl.com",
+      "likes": 15,
+      "fbShare": 13,
+      "twShare": 5,
+      "gpShare": 2,
+      "commentCount": 2,
+      "comments": [{
+        "csName": "Commenter 1",
+        "csComment": "Commenter 1's comment is here"
+      }, {
+        "csName": "Commenter 2",
+        "csComment": "Commenter 2's comment is here"
+      }]
+    });
+  });
+
 
 // Thing.find({}).remove()
 //   .then(() => {
