@@ -1,1 +1,47 @@
+.trailer-form {
+  margin: 20px 0;
+}
+#banner {
+  border-bottom: none;
+  margin-top: -30px;
+  h1 {
+    font-size: 70px;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  p{
+    font-size: 20px;
+  }
+}
 
+.hero-unit {
+  position: relative;
+  padding: 25px 15px;
+  //color: #F5F5F5;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  //background: #4393B9;
+}
+
+.navbar-text {
+  margin-left: 15px;
+}
+
+.trailer-search{
+  text-align: center;
+  font-weight: bold;
+}
+
+.trailer-container{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  .trailer-thumbnail{
+    margin-left: 0;
+    margin-right: 0;
+    height: 350px;
+    background: #4393B9;
+    .trailer-name{
+
+    }
+  }
+}
