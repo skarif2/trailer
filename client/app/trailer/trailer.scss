@@ -36,12 +36,14 @@
   margin-top: 30px;
   margin-bottom: 30px;
   .trailer-thumbnail{
-    margin-left: 0;
-    margin-right: 0;
-    height: 350px;
+    height: 375px;
     background: #4393B9;
-    .trailer-name{
 
+    .trailer-name{
+      .poster-img{
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
