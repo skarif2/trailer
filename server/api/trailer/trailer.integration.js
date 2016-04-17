@@ -3,40 +3,40 @@
 var app = require('../..');
 import request from 'supertest';
 
-var newThing;
+var newTrailer;
 
-describe('Thing API:', function() {
+describe('Trailer API:', function() {
 
-  describe('GET /api/things', function() {
-    var things;
+  describe('GET /api/trailers', function() {
+    var trailers;
 
     beforeEach(function(done) {
       request(app)
-        .get('/api/things')
+        .get('/api/trailers')
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
           if (err) {
             return done(err);
           }
-          things = res.body;
+          trailers = res.body;
           done();
         });
     });
 
     it('should respond with JSON array', function() {
-      expect(things).to.be.instanceOf(Array);
+      expect(trailers).to.be.instanceOf(Array);
     });
 
   });
 
-  describe('POST /api/things', function() {
+  describe('POST /api/trailers', function() {
     beforeEach(function(done) {
       request(app)
-        .post('/api/things')
+        .post('/api/trailers')
         .send({
-          name: 'New Thing',
-          info: 'This is the brand new thing!!!'
+          name: 'New Trailer',
+          info: 'This is the brand new trailer!!!'
         })
         .expect(201)
         .expect('Content-Type', /json/)
@@ -44,55 +44,55 @@ describe('Thing API:', function() {
           if (err) {
             return done(err);
           }
-          newThing = res.body;
+          newTrailer = res.body;
           done();
         });
     });
 
-    it('should respond with the newly created thing', function() {
-      expect(newThing.name).to.equal('New Thing');
-      expect(newThing.info).to.equal('This is the brand new thing!!!');
+    it('should respond with the newly created trailer', function() {
+      expect(newTrailer.name).to.equal('New Trailer');
+      expect(newTrailer.info).to.equal('This is the brand new trailer!!!');
     });
 
   });
 
-  describe('GET /api/things/:id', function() {
-    var thing;
+  describe('GET /api/trailers/:id', function() {
+    var trailer;
 
     beforeEach(function(done) {
       request(app)
-        .get('/api/things/' + newThing._id)
+        .get('/api/trailers/' + newTrailer._id)
         .expect(200)
         .expect('Content-Type', /json/)
         .end((err, res) => {
           if (err) {
             return done(err);
           }
-          thing = res.body;
+          trailer = res.body;
           done();
         });
     });
 
     afterEach(function() {
-      thing = {};
+      trailer = {};
     });
 
-    it('should respond with the requested thing', function() {
-      expect(thing.name).to.equal('New Thing');
-      expect(thing.info).to.equal('This is the brand new thing!!!');
+    it('should respond with the requested trailer', function() {
+      expect(trailer.name).to.equal('New Trailer');
+      expect(trailer.info).to.equal('This is the brand new trailer!!!');
     });
 
   });
 
-  describe('PUT /api/things/:id', function() {
-    var updatedThing;
+  describe('PUT /api/trailers/:id', function() {
+    var updatedTrailer;
 
     beforeEach(function(done) {
       request(app)
-        .put('/api/things/' + newThing._id)
+        .put('/api/trailers/' + newTrailer._id)
         .send({
-          name: 'Updated Thing',
-          info: 'This is the updated thing!!!'
+          name: 'Updated Trailer',
+          info: 'This is the updated trailer!!!'
         })
         .expect(200)
         .expect('Content-Type', /json/)
@@ -100,27 +100,27 @@ describe('Thing API:', function() {
           if (err) {
             return done(err);
           }
-          updatedThing = res.body;
+          updatedTrailer = res.body;
           done();
         });
     });
 
     afterEach(function() {
-      updatedThing = {};
+      updatedTrailer = {};
     });
 
-    it('should respond with the updated thing', function() {
-      expect(updatedThing.name).to.equal('Updated Thing');
-      expect(updatedThing.info).to.equal('This is the updated thing!!!');
+    it('should respond with the updated trailer', function() {
+      expect(updatedTrailer.name).to.equal('Updated Trailer');
+      expect(updatedTrailer.info).to.equal('This is the updated trailer!!!');
     });
 
   });
 
-  describe('DELETE /api/things/:id', function() {
+  describe('DELETE /api/trailers/:id', function() {
 
     it('should respond with 204 on successful removal', function(done) {
       request(app)
-        .delete('/api/things/' + newThing._id)
+        .delete('/api/trailers/' + newTrailer._id)
         .expect(204)
         .end((err, res) => {
           if (err) {
@@ -130,9 +130,9 @@ describe('Thing API:', function() {
         });
     });
 
-    it('should respond with 404 when thing does not exist', function(done) {
+    it('should respond with 404 when trailer does not exist', function(done) {
       request(app)
-        .delete('/api/things/' + newThing._id)
+        .delete('/api/trailers/' + newTrailer._id)
         .expect(404)
         .end((err, res) => {
           if (err) {
