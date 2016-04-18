@@ -1,0 +1,27 @@
+.container
+  .row
+    .col-md-12
+      h2 {{$ctrl.trailerDetails.title}}
+      p {{$ctrl.trailerDetails.studio}}
+      iframe.youtube-player(type="text/html" width="640" height="385" src="{{trustSrc($ctrl.trailerDetails.trailerUrl)}}" allowfullscreen frameborder="0")
+    .col-md-12
+      h3 Description
+      p {{$ctrl.trailerDetails.Description}}
+    .col-md-3
+      h4 Director
+      p(ng-repeat='directors in $ctrl.trailerDetails.director') {{directors}}
+    .col-md-3
+      h4 Writer
+      p(ng-repeat='writers in $ctrl.trailerDetails.writer') {{writers}}
+    .col-md-3
+      h4 Duration
+      p {{$ctrl.trailerDetails.duration}}
+    .col-md-3
+      h4 Genre
+      p(ng-repeat='genres in $ctrl.trailerDetails.genre') {{genres}}
+    .col-md-3
+      h4 Release Date
+      p {{$ctrl.trailerDetails.release}}
+    .col-md-3
+      h4 Casts
+      p(ng-repeat='casts in $ctrl.trailerDetails.cast') {{casts}} 

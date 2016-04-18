@@ -8,15 +8,6 @@ header#banner.hero-unit
     .col-md-8.col-md-offset-2
       .form-group.has-success
         input.trailer-search.form-control(type='text')
-.container
-  .row
-    .col-lg-12
-      h1.page-header Features:
-      ul.nav.nav-tabs.nav-stacked.col-md-4.col-lg-4.col-sm-6(ng-repeat='trailer in $ctrl.awesomeTrailer')
-        li
-          a(href='#', uib-tooltip='{{trailer.title}}')
-            | {{trailer.title}}
-            button.close(type='button', ng-click='$ctrl.deleteTrailer(traielr)') &times;
 .container.trailer-container
   .row
     .col-xs-12
@@ -44,7 +35,7 @@ header#banner.hero-unit
         span.pull-right Sort By:&nbsp; 
     .col-xs-12
       .col-xs-6.col-sm-4.col-md-3.trailer-thumbnail(ng-repeat='trailer in $ctrl.awesomeTrailer')
-        .trailer-name
+        a.trailer-name(href='/{{trailer._id}}')
           img.poster-img(src="{{trailer.posterUrl}}")
           h4 {{trailer.title}}
           p {{trailer.studio}}

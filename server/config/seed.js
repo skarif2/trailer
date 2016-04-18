@@ -11,7 +11,7 @@ import User from '../api/user/user.model';
 Trailer.find({}).remove()
   .then(() => {
     Trailer.create({
-      "_id": "57131fde465a6cfd11303de0",
+      "_id": "57131fde465a6cfd11303de2",
       "title": "Too Late",
       "Description": "When tasked with tracking down a missing woman from his own past, Private Investigator Mel Sampson finds himself navigating the dark corners of Southern California and the menagerie of eccentric personalities and lost souls who inhabit it. Filmed in a series of stunning unbroken takes and featuring a gut-wrenching, tour-de-force performance by John Hawkes, TOO LATE is presented only in theaters and only in 35mm.",
       "director": ["Dennis Hauck"],
@@ -23,7 +23,7 @@ Trailer.find({}).remove()
       "release": "2016-03-18",
       "views": 26,
       "posterUrl": "http://cdn.traileraddict.com/content/unknown/too-late-2015.jpg",
-      "trailerUrl": "https://www.youtube.com/watch?v=MaVSY0VVRxY",
+      "trailerUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "imdbUrl": "http://www.imdb.com/title/tt2394063/",
       "officialUrl": "http://www.toolatemovie.com/",
       "likes": 15,
@@ -39,7 +39,7 @@ Trailer.find({}).remove()
         "csComment": "Commenter 2's comment is here"
       }]
     }, {
-      "_id": "57131fde465a6cfd11303de3",
+      "_id": "57131fde465a6cfd11303de4",
       "title": "Doctor Strange",
       "Description": "'Doctor Strange' follows the story of neurosurgeon Doctor Stephen Strange who, after a horrific car accident, discovers the hidden world of magic and alternate dimensions.",
       "director": ["Scott Derrickson"],
@@ -51,7 +51,7 @@ Trailer.find({}).remove()
       "release": "2016-11-04",
       "views": 26,
       "posterUrl": "http://static.srcdn.com/slir/w1000-h1480-q90-c1000:1480/wp-content/uploads/Doctor-Strange-Poster.jpg",
-      "trailerUrl": "https://youtu.be/Lt-U_t2pUHI",
+      "trailerUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
       "imdbUrl": "http://www.imdb.com/title/tt1211837/",
       "officialUrl": "http://marvel.com/movies/movie/220/doctor_strange",
       "likes": 15,

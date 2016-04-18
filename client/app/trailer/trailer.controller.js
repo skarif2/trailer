@@ -4,8 +4,9 @@
 
 class TrailerController {
 
-  constructor($http, $scope, socket) {
+  constructor($http, $state, $scope, socket) {
     this.$http = $http;
+    this.state = $state;
     this.socket = socket;
     this.awesomeTrailer = [];
 
@@ -15,12 +16,6 @@ class TrailerController {
   }
 
   $onInit() {
-    // tried to use service as it uses ngResource
-    // TrailerService.query(response => {
-    //   this.awesomeTrailer = response.data;
-    //   this.socket.syncUpdates('trailer', this.awesomeTrailer);
-    //   console.log(this.awesomeTrailer);
-    // });
     this.$http.get('/api/trailers').then(response => {
       this.awesomeTrailer = response.data;
       this.socket.syncUpdates('trailer', this.awesomeTrailer);
@@ -36,6 +31,12 @@ class TrailerController {
 
   deleteTrailer(trailer) {
     this.$http.delete('/api/trailers/' + trailer._id);
+  }
+
+  showTrailerDetails(trailer) {
+    this.state.go('trailerDetails',{
+      id: trailer._id
+    });
   }
 }
 
