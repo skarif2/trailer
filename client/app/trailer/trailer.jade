@@ -15,24 +15,18 @@ header#banner.hero-unit
         .form-group.pull-left
           input.form-control.input-sm(type='text', placeholder='genre')
       .col-xs-6
-        .dropdown.pull-right
-          a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='true')
+        span(uib-dropdown, on-toggle='toggled(open)').pull-right
+          a#simple-dropdown(href='#', uib-dropdown-toggle)
             | Date
             span.caret
           ul.dropdown-menu(role='menu')
             li
-              a(href='#') Action
+              a(href='#') Name
             li
-              a(href='#') Another action
+              a(href='#') Genre
             li
-              a(href='#') Something else here
-            li.divider
-            li
-              a(href='#') Separated link
-            li.divider
-            li
-              a(href='#') One more separated link
-        span.pull-right Sort By:&nbsp; 
+              a(href='#') Release Date
+        span.pull-right Sort By:&nbsp;
     .col-xs-12
       .col-xs-6.col-sm-4.col-md-3.trailer-thumbnail(ng-repeat='trailer in $ctrl.awesomeTrailer')
         a.trailer-name(href='/{{trailer._id}}')
@@ -40,7 +34,7 @@ header#banner.hero-unit
           h4 {{trailer.title}}
           p {{trailer.studio}}
       .col-xs-6.col-sm-4.col-md-3.trailer-thumbnail(ng-repeat='trailer in $ctrl.awesomeTrailer')
-        .trailer-name
+        a.trailer-name(href='/{{trailer._id}}')
           img.poster-img(src="{{trailer.posterUrl}}")
           h4 {{trailer.title}}
           p {{trailer.studio}}

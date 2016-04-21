@@ -11,10 +11,6 @@ class TrailerDetailsComponent {
     this.socket = socket;
     this.trailerDetails = {};
 
-    $scope.trustSrc = function(src) {
-      return $sce.trustAsResourceUrl(src);
-    };
-
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('trailerDetails');
     });
@@ -23,14 +19,22 @@ class TrailerDetailsComponent {
   $onInit() {
     this.$http.get('/api/trailers/' + this.stateParams.id).then(response => {
       this.trailerDetails = response.data;
-      console.log(this.trailerDetails);
       this.socket.syncUpdates('trailer', this.trailerDetails);
     });
   }
 
-  // deleteTrailer(trailer) {
-  //   this.$http.delete('/api/trailers/' + trailer._id);
-  // }
+  trustSrc(src) {
+    return this.sce.trustAsResourceUrl(src);
+  }
+
+  moreThenOne(value) {
+    console.log(value.length);
+    return true;
+  }
+  
+  deleteTrailer(trailer) {
+    this.$http.delete('/api/trailers/' + trailer._id);
+  }
 }
 
 angular.module('trailersApp')

@@ -1,27 +1,82 @@
 .container
   .row
-    .col-md-12
-      h2 {{$ctrl.trailerDetails.title}}
-      p {{$ctrl.trailerDetails.studio}}
-      iframe.youtube-player(type="text/html" width="640" height="385" src="{{trustSrc($ctrl.trailerDetails.trailerUrl)}}" allowfullscreen frameborder="0")
-    .col-md-12
-      h3 Description
-      p {{$ctrl.trailerDetails.Description}}
-    .col-md-3
-      h4 Director
-      p(ng-repeat='directors in $ctrl.trailerDetails.director') {{directors}}
-    .col-md-3
-      h4 Writer
-      p(ng-repeat='writers in $ctrl.trailerDetails.writer') {{writers}}
-    .col-md-3
-      h4 Duration
-      p {{$ctrl.trailerDetails.duration}}
-    .col-md-3
-      h4 Genre
-      p(ng-repeat='genres in $ctrl.trailerDetails.genre') {{genres}}
-    .col-md-3
-      h4 Release Date
-      p {{$ctrl.trailerDetails.release}}
-    .col-md-3
-      h4 Casts
-      p(ng-repeat='casts in $ctrl.trailerDetails.cast') {{casts}} 
+    .col-md-10.col-md-offset-1
+      .col-md-12
+        h2 {{$ctrl.trailerDetails.title}}
+        p {{$ctrl.trailerDetails.studio}}
+        .video-wrapper
+          .vidoe-iframe
+            img(src='http://placehold.it/16x9').ratio
+            iframe.youtube-player(type="text/html" src="{{$ctrl.trustSrc($ctrl.trailerDetails.trailerUrl)}}" allowfullscreen frameborder="0")
+          .col-xs-12.like-share-section
+            a(href="")
+              i.pull-left.fa.fa-thumbs-up(area-hidden='true')
+                span {{$ctrl.trailerDetails.gpShare}}
+            a(href="")  
+              i.pull-right.fa.fa-google-plus-square(area-hidden='true')
+                span {{$ctrl.trailerDetails.gpShare}}
+            a(href="")
+              i.pull-right.fa.fa-facebook-square(area-hidden='true')
+                span {{$ctrl.trailerDetails.fbShare}}
+            a(href="")
+              i.pull-right.fa.fa-twitter-square(area-hidden='true')
+                span {{$ctrl.trailerDetails.twShare}}
+      .col-md-12
+        h3 Description
+        p {{$ctrl.trailerDetails.Description}}
+      .col-xs-12
+        .hline
+      .col-md-12.trailer-info
+        .col-md-3
+          h4 Duration
+          p {{$ctrl.trailerDetails.duration}}
+        .col-md-3
+          h4 Director
+          p(ng-repeat='directors in $ctrl.trailerDetails.director') {{directors}}
+        .col-md-3
+          h4 Writer
+          p(ng-repeat='writers in $ctrl.trailerDetails.writer') {{writers}} 
+        .col-md-3
+          h4 Views
+          p {{$ctrl.trailerDetails.views}}
+        .col-md-3
+          h4 Genre
+          p(ng-repeat='genres in $ctrl.trailerDetails.genre') {{genres}}
+        .col-md-3
+          h4 Release Date
+          p {{$ctrl.trailerDetails.release | date:'longDate'}}
+        .col-md-3
+          h4 Posted On
+          p {{$ctrl.trailerDetails.postedOn | date:'longDate'}}
+        .col-md-3
+          h4 Casts
+          p(ng-if="$ctrl.moreThenOne($ctrl.trailerDetails.cast)")
+            span(ng-repeat='casts in $ctrl.trailerDetails.cast') {{casts}},
+      .col-xs-12.pull-left
+        .hline
+      .col-md-12.comment-info
+        .col-xs-6
+          p.pull-left {{$ctrl.trailerDetails.commentCount}} Comments
+        .col-xs-6
+          span(uib-dropdown, on-toggle='toggled(open)').pull-right
+            a#simple-dropdown(href='#', uib-dropdown-toggle)
+              | Date
+              span.caret
+            ul.dropdown-menu(role='menu')
+              li
+                a(href='#') Name
+              li
+                a(href='#') Genre
+              li
+                a(href='#') Release Date
+          span.pull-right Sort By:&nbsp;
+      .col-xs-12.comment-section
+        .col-xs-12
+          .add-new-comment
+            img(src='http://placehold.it/65x65').pull-left
+            .form-group.pull-left
+              textarea.form-control(type='text')
+        .col-xs-12.previous-comment(ng-repeat='comment in $ctrl.trailerDetails.comments')
+          img(src='http://placehold.it/65x65').pull-left
+          p.csname {{ comment.csName }}
+          p {{ comment.csComment }}
