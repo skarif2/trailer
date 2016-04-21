@@ -1,8 +1,5 @@
 # trailers [![Build Status](https://travis-ci.org/skarif2/trailer.svg?branch=master)](https://travis-ci.org/skarif2/trailer) [![Dependency Status](https://david-dm.org/skarif2/trailer.svg)](https://david-dm.org/skarif2/trailer) [![devDependency Status](https://david-dm.org/skarif2/trailer/dev-status.svg)](https://david-dm.org/skarif2/trailer#info=devDependencies)
 
-This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.5.0.
-
-## Getting Started
 
 ### Prerequisites
 
@@ -25,10 +22,12 @@ This project was generated with the [Angular Full-Stack Generator](https://githu
 
 ## Build & development
 
-Run `grunt build` for building and `grunt serve` for preview.
+Run `gulp build` for building and `gulp serve` for preview.
 
 ## Testing
 
-Running `npm test` will run the unit tests with karma.
+Running `gulp test` will run the client and server unit tests with karma and mocha.
 
-Done!!
+Use `gulp test:server` to only run server tests.
+
+Use `gulp test:client` to only run client tests.

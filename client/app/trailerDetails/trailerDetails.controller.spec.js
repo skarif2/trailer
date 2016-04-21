@@ -1,21 +1,45 @@
 'use strict';
 
-describe('Component: TrailerDetailsComponent', function () {
+describe('Component: trailerDetails', function () {
 
   // load the controller's module
   beforeEach(module('trailersApp'));
+  beforeEach(module('stateMock'));
+  beforeEach(module('socketMock'));
 
-  var TrailerDetailsComponent, scope;
+  var scope;
+  var mainComponent;
+  var state;
+  var $httpBackend;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($componentController, $rootScope) {
-    scope = $rootScope.$new();
-    TrailerDetailsComponent = $componentController('TrailerDetailsComponent', {
-      $scope: scope
-    });
+  beforeEach(inject(function(
+    _$httpBackend_,
+    $http,
+    $componentController,
+    $rootScope,
+    $state,
+    $stateParams) {
+      $httpBackend = _$httpBackend_;
+      $stateParams.id = '57131fde465a6cfd11303de2';
+      $httpBackend.expectGET('/api/trailers/' + $stateParams.id)
+        .respond({
+          "_id": "57131fde465a6cfd11303de2",
+          "title": "Too Late",
+        });
+
+      scope = $rootScope.$new();
+      state = $state;
+      mainComponent = $componentController('trailerDetails', {
+        $http: $http,
+        $scope: scope,
+      });
   }));
 
-  it('should ...', function () {
-    expect(1).to.equal(1);
+
+  it('should return an array of json object or objects', function () {
+    mainComponent.$onInit();
+    $httpBackend.flush();
+    expect(mainComponent.trailerDetails.title).to.equal("Too Late");
   });
 });
