@@ -1,4 +1,4 @@
-# trailers
+# trailers [![Build Status](https://travis-ci.org/skarif2/trailer.svg?branch=master)](https://travis-ci.org/skarif2/trailer) [![Dependency Status](https://david-dm.org/skarif2/trailer.svg)](https://david-dm.org/skarif2/trailer) [![devDependency Status](https://david-dm.org/skarif2/trailer/dev-status.svg)](https://david-dm.org/skarif2/trailer#info=devDependencies)
 
 This project was generated with the [Angular Full-Stack Generator](https://github.com/DaftMonk/generator-angular-fullstack) version 3.5.0.
 

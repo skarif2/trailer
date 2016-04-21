@@ -35,8 +35,8 @@ describe('Trailer API:', function() {
       request(app)
         .post('/api/trailers')
         .send({
-          name: 'New Trailer',
-          info: 'This is the brand new trailer!!!'
+          title: 'New Trailer',
+          Description: 'This is the brand new trailer!!!'
         })
         .expect(201)
         .expect('Content-Type', /json/)
@@ -50,8 +50,8 @@ describe('Trailer API:', function() {
     });
 
     it('should respond with the newly created trailer', function() {
-      expect(newTrailer.name).to.equal('New Trailer');
-      expect(newTrailer.info).to.equal('This is the brand new trailer!!!');
+      expect(newTrailer.title).to.equal('New Trailer');
+      expect(newTrailer.Description).to.equal('This is the brand new trailer!!!');
     });
 
   });
@@ -78,8 +78,8 @@ describe('Trailer API:', function() {
     });
 
     it('should respond with the requested trailer', function() {
-      expect(trailer.name).to.equal('New Trailer');
-      expect(trailer.info).to.equal('This is the brand new trailer!!!');
+      expect(trailer.title).to.equal('New Trailer');
+      expect(trailer.Description).to.equal('This is the brand new trailer!!!');
     });
 
   });
@@ -91,8 +91,8 @@ describe('Trailer API:', function() {
       request(app)
         .put('/api/trailers/' + newTrailer._id)
         .send({
-          name: 'Updated Trailer',
-          info: 'This is the updated trailer!!!'
+          title: 'Updated Trailer',
+          Description: 'This is the updated trailer!!!'
         })
         .expect(200)
         .expect('Content-Type', /json/)
@@ -110,8 +110,8 @@ describe('Trailer API:', function() {
     });
 
     it('should respond with the updated trailer', function() {
-      expect(updatedTrailer.name).to.equal('Updated Trailer');
-      expect(updatedTrailer.info).to.equal('This is the updated trailer!!!');
+      expect(updatedTrailer.title).to.equal('Updated Trailer');
+      expect(updatedTrailer.Description).to.equal('This is the updated trailer!!!');
     });
 
   });
